@@ -5,4 +5,19 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!--<style name="ActionBar.Dark" parent="@style/ActionBar">
+        <item name="android:background">@color/actionbar_background_dark</item>
+    </style>
+
+    <style name="Holo.light.dark.actionbar" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/ActionBar.Dark</item>
+        <item name="android:titleTextStyle">@android:style/TextAppearance.Holo.Widget.ActionBar.Title</item>
+        <item name="android:subtitleTextStyle">@android:style/TextAppearance.Holo.Widget.ActionBar.Subtitle</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:windowActionBarOverlay">false</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_transparent_light_holo</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_transparent_dark_holo</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_ab_back_holo_dark</item>
+    </style>-->
+
 </resources>

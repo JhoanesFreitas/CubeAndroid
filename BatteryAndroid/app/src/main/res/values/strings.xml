@@ -1,6 +1,29 @@
 <resources>
-    <string name="app_name">BatteryAndroid</string>
+    <string name="app_name">Battery Android</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Battery Android</string>
     <string name="action_settings">Settings</string>
+
+    <!--Strings status carregamento-->
+    <string name="isCharge">Carregando...</string>
+    <string name="isNotCharge">Descarregando...</string>
+    <string name="isAc">Carregamento via AC</string>
+    <string name="isUSB">Carregamento via USB</string>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <!--String array-->
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
 </resources>
