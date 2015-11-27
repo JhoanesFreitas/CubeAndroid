@@ -12,8 +12,35 @@
     tools:context="holocron.com.br.powerdroid.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <ImageButton
+        android:layout_marginTop="10dp"
+        android:id="@+id/clearButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="-2dp"
+        android:background="@drawable/sweep"
+        android:onClick="clearAndroid"
+        android:scaleType="fitXY"
+        />
+
     <TextView
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="dbaaa"
+        />
+
+    <TextView
+        android:id="@+id/textCharge"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ak"
+        />
+
 </RelativeLayout>
