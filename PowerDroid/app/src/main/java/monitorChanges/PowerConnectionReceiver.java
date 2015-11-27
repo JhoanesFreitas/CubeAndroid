@@ -3,36 +3,43 @@ package monitorChanges;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.BatteryManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import holocron.com.br.powerdroid.R;
+
+
 /**
  * Created by jhoanes on 27/11/15.
  */
 public class PowerConnectionReceiver extends BroadcastReceiver {
+
+    private int scale = -1;
+    private int level = -1;
+    private int voltage = -1;
+    private int temp = -1;
+
     @Override
     public void onReceive(Context context, Intent intent) {
-        //IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
-        //Intent batteryStatus = context.registerReceiver(null, ifilter);
 
-        int status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
-        boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING ||
-                status == BatteryManager.BATTERY_STATUS_FULL;
+        level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+        scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+        temp = intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, -1);
+        voltage = intent.getIntExtra(BatteryManager.EXTRA_VOLTAGE, -1);
 
-        int chargePlug = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
-        boolean usbCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_USB;
-        boolean acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC;
+        IntentFilter filter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
 
-        //Determinando o nível da bateria
-        int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
-        int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+        double tp = temp / 10.0;
 
-        float batteryPct = (level / (float) scale) * 100;
+        Toast.makeText(context, "Nível da bateria: " + level + "%\n" + "Temperatura: "  + tp
+                + "ºC\n" + "Voltagem: " + voltage, Toast.LENGTH_LONG).show();
+        Log.e("BatteryManager", "level is " + level + "/" + scale + ", temp is " + temp + ", voltage is " + voltage);
+        //End
 
-        //if(batteryPct > 20){
         //Pega a conectividade à rede
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -43,19 +50,16 @@ public class PowerConnectionReceiver extends BroadcastReceiver {
 
 
         Log.i("IsCo", String.valueOf(isConnected));
-        String n = "" + isConnected;
-        if(isConnected)
-            Toast.makeText(context, "Conected", Toast.LENGTH_LONG).show();
+
+        if (isConnected)
+            Toast.makeText(context, R.string.connected, Toast.LENGTH_LONG).show();
         else
-            Toast.makeText(context, "NoConected", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, R.string.noConnected, Toast.LENGTH_LONG).show();
         //}
 
         //Pega o tipo de conecção
-        boolean isWiFi =  activeNetwork.getType() == ConnectivityManager.TYPE_WIFI;
-        Toast.makeText(context, "" + isWiFi, Toast.LENGTH_LONG).show();
-
-        String b = "Bateria em " + (int) batteryPct + "%";
-        Toast.makeText(context, b, Toast.LENGTH_LONG).show();
+        boolean isWiFi = activeNetwork.getType() == ConnectivityManager.TYPE_WIFI;
+        Toast.makeText(context, isWiFi ? "Connected via WiFi" : "No Connected via WiFi", Toast.LENGTH_LONG).show();
 
         BatteryLevelReceiver batteryLevelReceiver = new BatteryLevelReceiver();
 

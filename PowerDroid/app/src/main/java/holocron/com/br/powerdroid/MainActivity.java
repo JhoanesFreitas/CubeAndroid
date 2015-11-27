@@ -39,18 +39,15 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Desenvolvido por Holocron", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
 
         //Pega os processos em execução
-        ActivityManager activityManager = (ActivityManager)this.getSystemService(this.ACTIVITY_SERVICE);
-
-
-        String k = "" + activityManager.getRunningAppProcesses();
-
-        Toast.makeText(this, k, Toast.LENGTH_LONG).show();
+        //ActivityManager activityManager = (ActivityManager)this.getSystemService(this.ACTIVITY_SERVICE);
+        //String k = "" + activityManager.getRunningAppProcesses();
+        //Toast.makeText(this, k, Toast.LENGTH_LONG).show();
         //end
 
         //Esse codigo faz com q a tela fique sempre acordada

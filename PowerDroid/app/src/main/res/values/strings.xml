@@ -8,20 +8,11 @@
     <string name="isAc">Carregamento via AC</string>
     <string name="isUSB">Carregamento via USB</string>
 
-    <string name="drawer_open">Open</string>
-    <string name="drawer_close">Close</string>
-    <!--String array-->
-    <string-array name="planets_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
-    </string-array>
+    <string name="batterylevel">Nivel da bateria: </string>
+    <string name="temper">Temperatura: </string>
+    <string name="volt">Voltagem: </string>
 
-    <string name="action_websearch">Web search</string>
-    <string name="app_not_available">Sorry, there\'s no web browser available</string>
+    <string name="connected">Connected</string>
+    <string name="noConnected">No Connected</string>
+
 </resources>
